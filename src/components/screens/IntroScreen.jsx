@@ -10,30 +10,39 @@ export default function IntroScreen({ onNext }) {
                 <img
                     src="/gifs/intro.gif"
                     alt="Cute birthday animation topper"
-                    className="w-[140px] md:w-[180px]  object-cover"
+                    className="w-[140px] md:w-[180px] object-cover"
                 />
 
                 <div>
-                    <h1 className="text-pretty text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-fuchsia-400 to-pink-400 drop-shadow leading-tight"
+                    <h1
+                        className="text-pretty text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-fuchsia-400 to-pink-400 drop-shadow leading-tight"
                         style={{
                             filter: "drop-shadow(0 0 20px rgba(255,105,180,0.4))",
-                        }}>
-                        A Babylicious was born today,
+                        }}
+                    >
+                        A Babylicious legend was born today…
                     </h1>
 
-                                        <h1 className="text-pretty text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-fuchsia-400 to-pink-400 drop-shadow leading-tight"
+                    <h1
+                        className="text-pretty text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-fuchsia-400 to-pink-400 drop-shadow leading-tight"
                         style={{
                             filter: "drop-shadow(0 0 20px rgba(255,105,180,0.4))",
-                        }}>
-                        Few years ago!
+                        }}
+                    >
+                        a few years ago 😉
                     </h1>
-                    <p className="mt-4 text-xl text-pink-200">Yes, it’s YOU! A ittttuuuu sa surprise awaits...</p>
+
+                    <p className="mt-4 text-xl text-pink-200">
+                        And yep — that legend is YOU! 🥳
+                    </p>
+
+                    <p className="mt-2 text-lg text-pink-300">
+                        A teeny-tiny, itttuuuu surprise is waiting just for you 🎁💖
+                    </p>
                 </div>
 
                 <div className="mt-8">
-                    <GradientButton
-                        onClick={() => { onNext?.() }}
-                    >
+                    <GradientButton onClick={() => { onNext?.() }}>
                         <Gift size={20} />
                         Start the surprise
                     </GradientButton>
