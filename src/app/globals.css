@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday!</title>
+<style>
+  /* --- 1. SETTING THE SCENE --- */
+  body {
+    background: radial-gradient(circle at center, #2b1055, #000);
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Hide scrollbars for falling confetti */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Arial', sans-serif;
+  }
+
+  /* --- 2. HAPPY BIRTHDAY TEXT --- */
+  .title {
+    color: #fff;
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 100px;
+    z-index: 100;
+    text-shadow: 
+      0 0 10px #ff00de,
+      0 0 20px #ff00de,
+      0 0 40px #ff00de,
+      0 0 80px #ff00de;
+    animation: glow 1.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from { text-shadow: 0 0 10px #fff, 0 0 20px #ff00de, 0 0 30px #ff00de; }
+    to { text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6; }
+  }
+
+  /* --- 3. THE CAKE (Your original code + tweaks) --- */
+  .cake-container {
+    position: relative;
+    width: 250px;
+    height: 200px;
+    animation: floatCake 3s ease-in-out infinite;
+    z-index: 50;
+  }
+
+  @keyframes floatCake {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+
+  .plate {
+    width: 270px;
+    height: 110px;
+    position: absolute;
+    bottom: -10px;
+    left: -10px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .layer {
+    position: absolute;
+    display: block;
+    width: 250px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #553c13; /* Chocolate */
+    box-shadow:
+      0 2px 0 #604319, 0 4px 0 #4a3410, 0 6px 0 #3d2b0d,
+      0 8px 0 #392608, 0 10px 0 #372306, 0 12px 0 #352004,
+      0 14px 0 #331d02, 0 16px 0 #311a00, 0 18px 0 #2f170c,
+      0 20px 0 #2d150b, 0 22px 0 #2b1309, 0 24px 0 #291108,
+      0 26px 0 #270f07, 0 28px 0 #250d06, 0 30px 0 #230b05;
+  }
+
+  .layer-top { top: 0px; }
+  .layer-middle { top: 33px; }
+  .layer-bottom { top: 66px; }
+
+  .icing {
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    background-color: #fff3e6; /* Vanilla */
+    width: 240px;
+    height: 90px;
+    border-radius: 50%;
+    z-index: 2;
+  }
+
+  .icing:before {
+    content: "";
+    position: absolute;
+    top: 4px; right: 5px; bottom: 6px; left: 5px;
+    background-color: #f5ead8;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  .drip {
+    display: block;
+    width: 50px;
+    height: 60px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background-color: #f0e4d0;
+    position: absolute;
+    z-index: 3;
+  }
+
+  .drip1 { top: 53px; left: 5px; transform: skewY(15deg); height: 48px; width: 40px; }
+  .drip2 { top: 69px; left: 181px; transform: skewY(-15deg); }
+  .drip3 { top: 54px; left: 90px; width: 80px; border-bottom-left-radius: 40px; border-bottom-right-radius: 40px; }
+
+  .candle {
+    position: absolute;
+    background-color: #ff3333;
+    width: 16px;
+    height: 50px;
+    border-radius: 8px / 4px;
+    top: -20px;
+    left: 50%;
+    margin-left: -8px;
+    z-index: 10;
+  }
+  
+  .candle:before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 16px; height: 8px;
+    border-radius: 50%;
+    background-color: #ff6666;
+  }
+
+  .flame {
+    position: absolute;
+    background-color: orange;
+    width: 15px; height: 35px;
+    border-radius: 10px 10px 10px 10px / 25px 25px 10px 10px;
+    top: -34px; left: 50%;
+    margin-left: -7.5px;
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5);
+    transform-origin: 50% 90%;
+    animation: flicker 1s ease-in-out alternate infinite;
+  }
+
+  @keyframes flicker {
+    0% { transform: skewX(5deg) scaleY(1); opacity: 1; }
+    25% { transform: skewX(-5deg) scaleY(1.1); opacity: 0.8; }
+    50% { transform: skewX(10deg) scaleY(1); opacity: 1; }
+    75% { transform: skewX(-10deg) scaleY(1.1); opacity: 0.8; }
+    100% { transform: skewX(5deg) scaleY(1); opacity: 1; }
+  }
+
+  /* --- 4. CONFETTI VFX --- */
+  .confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #f00;
+    animation: fall linear infinite;
+    z-index: 1;
+  }
+
+  @keyframes fall {
+    0% { top: -10%; transform: rotate(0deg) translateX(0px); opacity: 1; }
+    100% { top: 110%; transform: rotate(360deg) translateX(20px); opacity: 0; }
+  }
+
+  /* Generating random confetti positions and colors */
+  .confetti:nth-child(1) { left: 10%; animation-duration: 3s; background: #ff0; }
+  .confetti:nth-child(2) { left: 20%; animation-duration: 4s; background: #0ff; }
+  .confetti:nth-child(3) { left: 30%; animation-duration: 2.5s; background: #f0f; }
+  .confetti:nth-child(4) { left: 40%; animation-duration: 3.5s; background: #0f0; }
+  .confetti:nth-child(5) { left: 50%; animation-duration: 3s; background: #f00; }
+  .confetti:nth-child(6) { left: 60%; animation-duration: 4.5s; background: #ff0; }
+  .confetti:nth-child(7) { left: 70%; animation-duration: 2.8s; background: #0ff; }
+  .confetti:nth-child(8) { left: 80%; animation-duration: 3.2s; background: #f0f; }
+  .confetti:nth-child(9) { left: 90%; animation-duration: 4s; background: #0f0; }
+  .confetti:nth-child(10) { left: 5%; animation-duration: 3.8s; background: #ff7f00; }
+  .confetti:nth-child(11) { left: 95%; animation-duration: 2.9s; background: #ff7f00; }
+
+  /* --- 5. BALLOONS VFX --- */
+  .balloon {
+    position: absolute;
+    width: 40px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    bottom: -100px;
+    animation: floatUp 6s linear infinite;
+    z-index: 0;
+  }
+  .balloon::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 18px;
+    width: 2px;
+    height: 30px;
+    background: #fff;
+  }
+
+  @keyframes floatUp {
+    0% { bottom: -100px; transform: translateX(0); opacity: 1; }
+    50% { transform: translateX(10px); }
+    100% { bottom: 120vh; transform: translateX(-10px); opacity: 0; }
+  }
+
+  .balloon:nth-child(12) { left: 15%; background: rgba(255, 0, 0, 0.4); animation-duration: 7s; }
+  .balloon:nth-child(13) { left: 75%; background: rgba(0, 0, 255, 0.4); animation-duration: 8s; animation-delay: 1s; }
+  .balloon:nth-child(14) { left: 45%; background: rgba(0, 255, 0, 0.4); animation-duration: 9s; animation-delay: 2s; }
+
+</style>
+</head>
+<body>
+
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+
+  <div class="title">Happy Birthday</div>
+
+  <div class="cake-container">
+    <div class="plate"></div>
+    <div class="layer layer-bottom"></div>
+    <div class="layer layer-middle"></div>
+    <div class="layer layer-top"></div>
+    <div class="icing"></div>
+    <div class="drip drip1"></div>
+    <div class="drip drip2"></div>
+    <div class="drip drip3"></div>
+    <div class="candle">
+      <div class="flame"></div>
+    </div>
+  </div>
+
+</body>
+</html>
