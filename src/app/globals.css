@@ -410,6 +410,54 @@ body {
   }
 }
 
+/* Flicker animation - corrected */
+@keyframes flicker {
+  0% {
+    transform: skewX(5deg);
+    box-shadow:
+      0 0 10px rgba(255, 165, 0, 0.2),
+      0 0 20px rgba(255, 165, 0, 0.2),
+      0 0 60px rgba(255, 165, 0, 0.2),
+      0 0 80px rgba(255, 165, 0, 0.2);
+  }
+
+  25% {
+    transform: skewX(-5deg);
+    box-shadow:
+      0 0 10px rgba(255, 165, 0, 0.5),
+      0 0 20px rgba(255, 165, 0, 0.5),
+      0 0 60px rgba(255, 165, 0, 0.5),
+      0 0 80px rgba(255, 165, 0, 0.5);
+  }
+
+  50% {
+    transform: skewX(10deg);
+    box-shadow:
+      0 0 10px rgba(255, 165, 0, 0.3),
+      0 0 20px rgba(255, 165, 0, 0.3),
+      0 0 60px rgba(255, 165, 0, 0.3),
+      0 0 80px rgba(255, 165, 0, 0.3);
+  }
+
+  75% {
+    transform: skewX(-10deg);
+    box-shadow:
+      0 0 10px rgba(255, 165, 0, 0.4),
+      0 0 20px rgba(255, 165, 0, 0.4),
+      0 0 60px rgba(255, 165, 0, 0.4),
+      0 0 80px rgba(255, 165, 0, 0.4);
+  }
+
+  100% {
+    transform: skewX(5deg);
+    box-shadow:
+      0 0 10px rgba(255, 165, 0, 0.5),
+      0 0 20px rgba(255, 165, 0, 0.5),
+      0 0 60px rgba(255, 165, 0, 0.5),
+      0 0 80px rgba(255, 165, 0, 0.5);
+  }
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .container {
@@ -442,4 +490,4 @@ button:hover {
 
 .spinner-container:hover .spinner1 {
   animation: pulse 2s ease-in-out infinite;
-}
+    }
