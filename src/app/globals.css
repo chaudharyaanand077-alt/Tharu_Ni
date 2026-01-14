@@ -4,34 +4,35 @@ button {
   cursor: pointer;
 }
 
-/* Rainbow spinner for birthday theme */
+/* Thick batter-like spinner */
 .spinner {
   background-image: linear-gradient(
     45deg,
-    #ff6b6b 0%,
-    #ffd93d 25%,
-    #6bcf7f 50%,
-    #4d96ff 75%,
-    #9d4edd 100%
+    #f59e0b 0%,    /* Amber - flour color */
+    #d97706 25%,   /* Warm brown */
+    #92400e 50%,   /* Rich brown */
+    #fbbf24 75%,   /* Light butter yellow */
+    #f59e0b 100%
   );
   width: 180px;
   height: 180px;
-  animation: spinning82341 1.7s linear infinite;
+  animation: spinning82341 2.5s linear infinite;
   text-align: center;
   border-radius: 100px;
-  filter: blur(1px);
+  filter: blur(2px);
   box-shadow: 
-    0px -5px 20px 0px rgba(255, 107, 107, 0.7),
-    0px 5px 20px 0px rgba(157, 78, 221, 0.7),
-    0px 0px 30px 10px rgba(77, 150, 255, 0.5);
+    0px -5px 20px 0px rgba(245, 158, 11, 0.5),
+    0px 5px 20px 0px rgba(146, 64, 14, 0.5),
+    inset 0 0 30px rgba(251, 191, 36, 0.3);
 }
 
 .spinner1 {
-  background-color: #0f172a;
+  background-color: #78350f; /* Deep brown */
   width: 180px;
   height: 180px;
   border-radius: 100px;
-  filter: blur(10px);
+  filter: blur(8px);
+  opacity: 0.7;
 }
 
 @keyframes spinning82341 {
@@ -40,64 +41,19 @@ button {
   }
 }
 
-/* Rainbow flicker animation for birthday candle */
-@keyframes flicker {
-  0% {
-    transform: skewX(5deg) scale(1);
-    background: #ff6b6b;
-    box-shadow:
-      0 0 10px rgba(255, 107, 107, 0.8),
-      0 0 20px rgba(255, 107, 107, 0.8),
-      0 0 40px rgba(255, 107, 107, 0.8),
-      0 0 80px rgba(255, 107, 107, 0.8),
-      inset 0 0 20px rgba(255, 255, 255, 0.5);
+/* Batter dripping animation */
+@keyframes batter-drip {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.9;
   }
-
-  25% {
-    transform: skewX(-5deg) scale(1.1);
-    background: #ffd93d;
-    box-shadow:
-      0 0 15px rgba(255, 217, 61, 0.9),
-      0 0 30px rgba(255, 217, 61, 0.9),
-      0 0 60px rgba(255, 217, 61, 0.9),
-      0 0 100px rgba(255, 217, 61, 0.9),
-      inset 0 0 25px rgba(255, 255, 255, 0.6);
-  }
-
   50% {
-    transform: skewX(10deg) scale(1);
-    background: #6bcf7f;
-    box-shadow:
-      0 0 10px rgba(107, 207, 127, 0.8),
-      0 0 20px rgba(107, 207, 127, 0.8),
-      0 0 40px rgba(107, 207, 127, 0.8),
-      0 0 80px rgba(107, 207, 127, 0.8),
-      inset 0 0 20px rgba(255, 255, 255, 0.5);
-  }
-
-  75% {
-    transform: skewX(-10deg) scale(1.1);
-    background: #4d96ff;
-    box-shadow:
-      0 0 15px rgba(77, 150, 255, 0.9),
-      0 0 30px rgba(77, 150, 255, 0.9),
-      0 0 60px rgba(77, 150, 255, 0.9),
-      0 0 100px rgba(77, 150, 255, 0.9),
-      inset 0 0 25px rgba(255, 255, 255, 0.6);
-  }
-
-  100% {
-    transform: skewX(5deg) scale(1);
-    background: #9d4edd;
-    box-shadow:
-      0 0 10px rgba(157, 78, 221, 0.8),
-      0 0 20px rgba(157, 78, 221, 0.8),
-      0 0 40px rgba(157, 78, 221, 0.8),
-      0 0 80px rgba(157, 78, 221, 0.8),
-      inset 0 0 20px rgba(255, 255, 255, 0.5);
+    transform: translateY(5px) scale(1.05);
+    opacity: 1;
   }
 }
 
+/* Mixing bowl container */
 .cake {
   position: relative;
   width: 250px;
@@ -107,28 +63,27 @@ button {
   margin-left: -125px;
 }
 
-/* Icy blue plate for coldest feel */
+/* Mixing bowl with metallic sheen */
 .plate {
   width: 270px;
   height: 110px;
   position: absolute;
   bottom: -10px;
   left: -10px;
-  background: linear-gradient(145deg, #e0f2fe, #bae6fd);
+  background: linear-gradient(145deg, #d1d5db, #9ca3af);
   border-radius: 50%;
   box-shadow:
-    0 2px 0 #7dd3fc,
-    0 4px 0 #7dd3fc,
-    0 5px 40px rgba(0, 0, 0, 0.5),
-    inset 0 0 30px rgba(255, 255, 255, 0.8);
-  border: 2px solid #38bdf8;
+    0 5px 15px rgba(0, 0, 0, 0.3),
+    inset 0 0 40px rgba(255, 255, 255, 0.4),
+    inset 0 0 20px rgba(107, 114, 128, 0.2);
+  border: 3px solid #6b7280;
 }
 
 .cake>* {
   position: absolute;
 }
 
-/* Rainbow colored cake layers */
+/* Cake batter layers - thick and viscous looking */
 .layer {
   position: absolute;
   display: block;
@@ -136,26 +91,15 @@ button {
   height: 100px;
   border-radius: 50%;
   background: linear-gradient(180deg, 
-    #ff6b6b 0%,
-    #ffd93d 33%,
-    #6bcf7f 66%,
-    #4d96ff 100%);
+    #f59e0b 0%,    /* Top - lighter batter */
+    #d97706 33%,   /* Middle - golden brown */
+    #92400e 66%,   /* Deeper brown */
+    #78350f 100%   /* Darkest at bottom */
+  );
   box-shadow:
-    0 2px 0 rgba(255, 107, 107, 0.8),
-    0 4px 0 rgba(255, 217, 61, 0.8),
-    0 6px 0 rgba(107, 207, 127, 0.8),
-    0 8px 0 rgba(77, 150, 255, 0.8),
-    0 10px 0 rgba(157, 78, 221, 0.8),
-    0 12px 0 rgba(255, 107, 107, 0.7),
-    0 14px 0 rgba(255, 217, 61, 0.7),
-    0 16px 0 rgba(107, 207, 127, 0.7),
-    0 18px 0 rgba(77, 150, 255, 0.7),
-    0 20px 0 rgba(157, 78, 221, 0.7),
-    0 22px 0 rgba(255, 107, 107, 0.6),
-    0 24px 0 rgba(255, 217, 61, 0.6),
-    0 26px 0 rgba(107, 207, 127, 0.6),
-    0 28px 0 rgba(77, 150, 255, 0.6),
-    0 30px 0 rgba(157, 78, 221, 0.6);
+    inset 0 10px 30px rgba(251, 191, 36, 0.4),
+    inset 0 -10px 30px rgba(120, 53, 15, 0.4),
+    0 5px 15px rgba(120, 53, 15, 0.3);
 }
 
 .layer-top {
@@ -164,20 +108,33 @@ button {
 
 .layer-middle {
   top: 33px;
+  background: linear-gradient(180deg, 
+    #d97706 0%,
+    #92400e 33%,
+    #78350f 66%,
+    #451a03 100%
+  );
 }
 
 .layer-bottom {
   top: 66px;
+  background: linear-gradient(180deg, 
+    #92400e 0%,
+    #78350f 33%,
+    #451a03 66%,
+    #1f2937 100%
+  );
 }
 
-/* Icy blue frosting */
+/* Thick batter surface */
 .icing {
   top: 2px;
   left: 5px;
-  background: linear-gradient(145deg, #f0f9ff, #e0f2fe);
+  background: linear-gradient(145deg, #f59e0b, #d97706);
   width: 240px;
   height: 90px;
   border-radius: 50%;
+  animation: batter-drip 3s ease-in-out infinite;
 }
 
 .icing:before {
@@ -187,95 +144,128 @@ button {
   right: 5px;
   bottom: 6px;
   left: 5px;
-  background: linear-gradient(145deg, #dbeafe, #eff6ff);
-  box-shadow:
-    0 0 10px rgba(255, 255, 255, 0.9),
-    0 0 20px rgba(255, 255, 255, 0.6),
-    0 0 30px rgba(255, 255, 255, 0.3);
+  background: radial-gradient(circle at 30% 30%, 
+    rgba(251, 191, 36, 0.8) 0%,
+    rgba(245, 158, 11, 0.6) 50%,
+    rgba(217, 119, 6, 0.8) 100%);
   border-radius: 50%;
   z-index: 1;
+  filter: blur(1px);
 }
 
-/* Rainbow drips */
+/* Batter drips - thick and slow */
 .drip {
   display: block;
-  width: 50px;
-  height: 60px;
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
+  width: 40px;
+  height: 50px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  animation: batter-drip 4s ease-in-out infinite;
+  animation-delay: var(--drip-delay);
 }
 
 .drip1 {
+  --drip-delay: 0s;
   top: 53px;
-  left: 5px;
-  transform: skewY(15deg);
-  height: 48px;
-  width: 40px;
-  background: linear-gradient(to bottom, #ff6b6b, #ff8e8e);
+  left: 10px;
+  transform: skewY(10deg);
+  height: 55px;
+  width: 35px;
+  background: linear-gradient(to bottom, 
+    #d97706,
+    #92400e 70%,
+    #78350f
+  );
 }
 
 .drip2 {
-  top: 69px;
-  left: 181px;
-  transform: skewY(-15deg);
-  background: linear-gradient(to bottom, #4d96ff, #6babff);
+  --drip-delay: 0.5s;
+  top: 65px;
+  left: 185px;
+  transform: skewY(-12deg);
+  background: linear-gradient(to bottom, 
+    #d97706,
+    #92400e 70%,
+    #78350f
+  );
 }
 
 .drip3 {
-  top: 54px;
+  --drip-delay: 1s;
+  top: 50px;
   left: 90px;
-  width: 80px;
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
-  background: linear-gradient(to bottom, #6bcf7f, #8ad99c);
+  width: 70px;
+  height: 60px;
+  border-bottom-left-radius: 35px;
+  border-bottom-right-radius: 35px;
+  background: linear-gradient(to bottom, 
+    #f59e0b,
+    #d97706 60%,
+    #92400e
+  );
 }
 
-/* Colorful birthday candles */
+/* Mixing spoon */
 .candle {
   background: linear-gradient(180deg, 
-    #ff6b6b 0%,
-    #ffd93d 33%,
-    #6bcf7f 66%,
-    #4d96ff 100%);
-  width: 16px;
-  height: 50px;
-  border-radius: 8px / 4px;
-  top: -20px;
+    #92400e 0%,
+    #78350f 50%,
+    #451a03 100%);
+  width: 8px;
+  height: 60px;
+  border-radius: 4px;
+  top: -30px;
   left: 50%;
-  margin-left: -8px;
+  margin-left: -4px;
   z-index: 10;
   box-shadow:
-    0 0 10px rgba(255, 255, 255, 0.8),
-    inset 0 0 20px rgba(255, 255, 255, 0.6);
+    inset 0 0 10px rgba(251, 191, 36, 0.3),
+    0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .candle:before {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
-  width: 16px;
+  left: -6px;
+  width: 20px;
   height: 8px;
   border-radius: 50%;
-  background: linear-gradient(145deg, #fff, #f8fafc);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(145deg, #92400e, #78350f);
+  box-shadow: 
+    inset 0 1px 3px rgba(0, 0, 0, 0.3),
+    0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
+/* Air bubbles in batter */
 .flame {
   position: absolute;
-  width: 15px;
-  height: 35px;
-  border-radius: 10px 10px 10px 10px / 25px 25px 10px 10px;
-  top: -34px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  top: -45px;
   left: 50%;
-  margin-left: -7.5px;
+  margin-left: -6px;
   z-index: 10;
-  transform-origin: 50% 90%;
-  animation: flicker 1s ease-in-out alternate infinite;
-  filter: brightness(1.2);
+  background: rgba(251, 191, 36, 0.9);
+  box-shadow: 
+    0 0 10px rgba(251, 191, 36, 0.8),
+    0 0 20px rgba(245, 158, 11, 0.5);
+  animation: bubble-float 4s ease-in-out infinite;
 }
 
-/* Add sprinkles/confetti effect around cake */
+@keyframes bubble-float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Flour/sugar particles around bowl */
 .cake:after {
   content: "";
   position: absolute;
@@ -284,45 +274,69 @@ button {
   right: -40px;
   bottom: -40px;
   background-image: 
-    radial-gradient(circle at 20% 30%, rgba(255, 107, 107, 0.4) 2px, transparent 2px),
-    radial-gradient(circle at 60% 10%, rgba(255, 217, 61, 0.4) 2px, transparent 2px),
-    radial-gradient(circle at 40% 70%, rgba(107, 207, 127, 0.4) 2px, transparent 2px),
-    radial-gradient(circle at 80% 40%, rgba(77, 150, 255, 0.4) 2px, transparent 2px),
-    radial-gradient(circle at 30% 80%, rgba(157, 78, 221, 0.4) 2px, transparent 2px),
-    radial-gradient(circle at 70% 20%, rgba(255, 107, 107, 0.4) 2px, transparent 2px);
-  background-size: 50px 50px;
+    radial-gradient(circle at 20% 30%, rgba(251, 191, 36, 0.3) 1px, transparent 1px),
+    radial-gradient(circle at 60% 10%, rgba(245, 158, 11, 0.3) 1px, transparent 1px),
+    radial-gradient(circle at 40% 70%, rgba(217, 119, 6, 0.3) 1px, transparent 1px),
+    radial-gradient(circle at 80% 40%, rgba(146, 64, 14, 0.3) 1px, transparent 1px),
+    radial-gradient(circle at 30% 80%, rgba(120, 53, 15, 0.3) 1px, transparent 1px);
+  background-size: 60px 60px;
   z-index: -1;
-  animation: float 20s linear infinite;
+  animation: flour-dust 15s linear infinite;
   pointer-events: none;
 }
 
-@keyframes float {
+@keyframes flour-dust {
   0% {
-    background-position: 0 0, 25px 25px, 50px 50px, 75px 75px, 100px 100px, 125px 125px;
+    background-position: 0 0, 30px 30px, 60px 60px, 90px 90px, 120px 120px;
   }
   100% {
-    background-position: 50px 50px, 75px 75px, 100px 100px, 125px 125px, 150px 150px, 175px 175px;
+    background-position: 60px 60px, 90px 90px, 120px 120px, 150px 150px, 180px 180px;
   }
 }
 
-/* Add glowing particles for extra birthday magic */
-.glow-particle {
+/* More air bubbles in the batter */
+.bubble {
   position: absolute;
-  width: 4px;
-  height: 4px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-  animation: particle-float 3s ease-in-out infinite;
+  background: rgba(251, 191, 36, 0.6);
+  box-shadow: 
+    inset 0 0 4px rgba(255, 255, 255, 0.5),
+    0 0 8px rgba(245, 158, 11, 0.4);
+  animation: bubble-rise 6s ease-in infinite;
   pointer-events: none;
 }
 
-@keyframes particle-float {
-  0%, 100% {
-    transform: translateY(0) translateX(0);
+@keyframes bubble-rise {
+  0% {
+    transform: translateY(0) scale(0.8);
     opacity: 0;
   }
-  50% {
-    opacity: 1;
+  20% {
+    opacity: 0.7;
   }
+  80% {
+    opacity: 0.5;
   }
+  100% {
+    transform: translateY(-100px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Thick batter texture overlay */
+.batter-texture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 10% 20%, transparent 20%, rgba(120, 53, 15, 0.1) 20%),
+    radial-gradient(circle at 90% 80%, transparent 15%, rgba(69, 26, 3, 0.1) 15%),
+    radial-gradient(circle at 50% 50%, transparent 25%, rgba(31, 41, 55, 0.1) 25%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+                              }
