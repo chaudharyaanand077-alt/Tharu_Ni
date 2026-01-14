@@ -1,44 +1,30 @@
+
 @import "tailwindcss";
 
-/* ---------------------------- */
-/*  Full-page Animated Background */
+/* --- 1. NEW BACKGROUND THEME --- */
 body {
   margin: 0;
+  padding: 0;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(270deg, #ff6ec4, #7873f5, #42e695, #fddb92);
-  background-size: 800% 800%;
-  animation: gradientShift 15s ease infinite;
-  overflow: hidden;
-}
-
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at center, rgba(255,255,255,0.1), transparent 70%);
-  pointer-events: none;
+  /* Colorful animated gradient background */
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  overflow: hidden; /* Hides scrollbars */
 }
 
-@keyframes gradientShift {
+@keyframes gradientBG {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* ---------------------------- */
-/* General Button */
 button {
   cursor: pointer;
 }
 
-/* ---------------------------- */
-/* Spinner */
+/* Spinner code kept as requested (styled slightly to fit) */
 .spinner {
   background-image: linear-gradient(rgb(186, 66, 255) 35%, rgb(0, 225, 255));
   width: 180px;
@@ -48,6 +34,11 @@ button {
   border-radius: 100px;
   filter: blur(1px);
   box-shadow: 0px -5px 20px 0px rgb(186, 66, 255), 0px 5px 20px 0px rgb(0, 225, 255);
+  /* Hide spinner if you only want the cake, otherwise position it: */
+  position: absolute; 
+  top: 10%; 
+  left: 10%;
+  opacity: 0.5;
 }
 
 .spinner1 {
@@ -59,30 +50,27 @@ button {
 }
 
 @keyframes spinning82341 {
-  to {
-    transform: rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
 }
 
-/* ---------------------------- */
-/* Candle Flicker Animation */
-@keyframes flicker {
-  0% { transform: skewX(5deg); box-shadow:0 0 10px rgba(255,165,0,0.2),0 0 20px rgba(255,165,0,0.2),0 0 60px rgba(255,165,0,0.2),0 0 80px rgba(255,165,0,0.2); }
-  25% { transform: skewX(-5deg); box-shadow:0 0 10px rgba(255,165,0,0.5),0 0 20px rgba(255,165,0,0.5),0 0 60px rgba(255,165,0,0.5),0 0 80px rgba(255,165,0,0.5); }
-  50% { transform: skewX(10deg); box-shadow:0 0 10px rgba(255,165,0,0.3),0 0 20px rgba(255,165,0,0.3),0 0 60px rgba(255,165,0,0.3),0 0 80px rgba(255,165,0,0.3); }
-  75% { transform: skewX(-10deg); box-shadow:0 0 10px rgba(255,165,0,0.4),0 0 20px rgba(255,165,0,0.4),0 0 60px rgba(255,165,0,0.4),0 0 80px rgba(255,165,0,0.4); }
-  100% { transform: skewX(5deg); box-shadow:0 0 10px rgba(255,165,0,0.5),0 0 20px rgba(255,165,0,0.5),0 0 60px rgba(255,165,0,0.5),0 0 80px rgba(255,165,0,0.5); }
+/* --- 2. CAKE ANIMATION (FLOATING) --- */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
 }
 
-/* ---------------------------- */
-/* Cake */
 .cake {
-  position: relative;
+  position: absolute;
   width: 250px;
   height: 200px;
   top: 50%;
   left: 50%;
   margin-left: -125px;
+  margin-top: -100px; /* Centering fix */
+  
+  /* Apply the floating animation here */
+  animation: float 3s ease-in-out infinite; 
 }
 
 .plate {
@@ -91,27 +79,44 @@ button {
   position: absolute;
   bottom: -10px;
   left: -10px;
-  background-color: #ccc;
+  background-color: #fff;
   border-radius: 50%;
-  box-shadow:0 2px 0 #999,0 4px 0 #999,0 5px 40px rgba(0,0,0,0.5);
+  box-shadow:
+    0 2px 0 #b3b3b3,
+    0 4px 0 #b3b3b3,
+    0 5px 40px rgba(0, 0, 0, 0.5);
 }
 
-.cake>* {
+.cake > * {
   position: absolute;
 }
 
+/* --- 3. NEW CAKE COLORS (STRAWBERRY) --- */
 .layer {
   position: absolute;
   display: block;
   width: 250px;
   height: 100px;
   border-radius: 50%;
-  background-color: #553c13;
+  /* Main Cake Color: Pink */
+  background-color: #ff9ecd; 
+  /* 3D Shadows: Darker Pink/Red */
   box-shadow:
-    0 2px 0 #604319,0 4px 0 #4a3410,0 6px 0 #3d2b0d,0 8px 0 #392608,
-    0 10px 0 #372306,0 12px 0 #352004,0 14px 0 #331d02,0 16px 0 #311a00,
-    0 18px 0 #2f170c,0 20px 0 #2d150b,0 22px 0 #2b1309,0 24px 0 #291108,
-    0 26px 0 #270f07,0 28px 0 #250d06,0 30px 0 #230b05;
+    0 2px 0 #e67eac,
+    0 4px 0 #cc6090,
+    0 6px 0 #b34a78,
+    0 8px 0 #9e3963,
+    0 10px 0 #8a2d52,
+    0 12px 0 #7a2345,
+    0 14px 0 #6b1a3a,
+    0 16px 0 #5c1230,
+    0 18px 0 #4f0c26,
+    0 20px 0 #42081f,
+    0 22px 0 #360519,
+    0 24px 0 #2b0313,
+    0 26px 0 #21020e,
+    0 28px 0 #17010a,
+    0 30px 0 #0d0005;
 }
 
 .layer-top { top: 0px; }
@@ -121,7 +126,7 @@ button {
 .icing {
   top: 2px;
   left: 5px;
-  background-color: #fff3e6;
+  background-color: #ffffff;
   width: 240px;
   height: 90px;
   border-radius: 50%;
@@ -134,31 +139,50 @@ button {
   right: 5px;
   bottom: 6px;
   left: 5px;
-  background-color: #f5ead8;
-  box-shadow:0 0 4px #f7eee0,0 0 4px #f7eee0,0 0 4px #f7eee0;
+  background-color: #fffbf5;
+  box-shadow:
+    0 0 4px #fffbf5,
+    0 0 4px #fffbf5,
+    0 0 4px #fffbf5;
   border-radius: 50%;
   z-index: 1;
 }
 
-/* ---------------------------- */
-/* Drips */
+/* Updated Drip Color to match white icing */
 .drip {
   display: block;
   width: 50px;
   height: 60px;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
-  background-color: #f0e4d0;
+  background-color: #ffffff;
 }
 
-.drip1 { top: 53px; left: 5px; transform: skewY(15deg); height: 48px; width: 40px; }
-.drip2 { top: 69px; left: 181px; transform: skewY(-15deg); }
-.drip3 { top: 54px; left: 90px; width: 80px; border-bottom-left-radius: 40px; border-bottom-right-radius: 40px; }
+.drip1 {
+  top: 53px;
+  left: 5px;
+  transform: skewY(15deg);
+  height: 48px;
+  width: 40px;
+}
 
-/* ---------------------------- */
-/* Candle */
+.drip2 {
+  top: 69px;
+  left: 181px;
+  transform: skewY(-15deg);
+}
+
+.drip3 {
+  top: 54px;
+  left: 90px;
+  width: 80px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+/* Updated Candle Color to Blue for contrast */
 .candle {
-  background-color: #7B020B;
+  background-color: #00bcd4; /* Bright Blue */
   width: 16px;
   height: 50px;
   border-radius: 8px / 4px;
@@ -176,11 +200,9 @@ button {
   width: 16px;
   height: 8px;
   border-radius: 50%;
-  background-color: #a40513;
+  background-color: #008ba3; /* Darker Blue top */
 }
 
-/* ---------------------------- */
-/* Flame */
 .flame {
   position: absolute;
   background-color: orange;
@@ -191,7 +213,34 @@ button {
   left: 50%;
   margin-left: -7.5px;
   z-index: 10;
-  box-shadow: 0 0 10px rgba(255,165,0,0.5),0 0 20px rgba(255,165,0,0.5),0 0 60px rgba(255,165,0,0.5),0 0 80px rgba(255,165,0,0.5);
+  box-shadow:
+    0 0 10px rgba(255, 165, 0, 0.5),
+    0 0 20px rgba(255, 165, 0, 0.5),
+    0 0 60px rgba(255, 165, 0, 0.5),
+    0 0 80px rgba(255, 165, 0, 0.5);
   transform-origin: 50% 90%;
   animation: flicker 1s ease-in-out alternate infinite;
-    }
+}
+
+@keyframes flicker {
+  0% {
+    transform: skewX(5deg);
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.2), 0 0 20px rgba(255, 165, 0, 0.2), 0 0 60px rgba(255, 165, 0, 0.2), 0 0 80px rgba(255, 165, 0, 0.2);
+  }
+  25% {
+    transform: skewX(-5deg);
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
+  }
+  50% {
+    transform: skewX(10deg);
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.3), 0 0 20px rgba(255, 165, 0, 0.3), 0 0 60px rgba(255, 165, 0, 0.3), 0 0 80px rgba(255, 165, 0, 0.3);
+  }
+  75% {
+    transform: skewX(-10deg);
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.4), 0 0 20px rgba(255, 165, 0, 0.4), 0 0 60px rgba(255, 165, 0, 0.4), 0 0 80px rgba(255, 165, 0, 0.4);
+  }
+  100% {
+    transform: skewX(5deg);
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
+  }
+}
