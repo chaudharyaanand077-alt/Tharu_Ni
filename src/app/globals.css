@@ -1,108 +1,44 @@
 @import "tailwindcss";
 
-/* Colorful animated background without extra HTML */
+/* --- NEW BACKGROUND THEME --- */
 body {
   margin: 0;
-  min-height: 100vh;
-  background: 
-    /* Main gradient background */
-    linear-gradient(45deg, 
-      rgba(255, 107, 107, 0.15) 0%, 
-      rgba(255, 217, 61, 0.15) 25%, 
-      rgba(107, 207, 127, 0.15) 50%, 
-      rgba(77, 150, 255, 0.15) 75%, 
-      rgba(157, 78, 221, 0.15) 100%),
-    /* Diamond pattern */
-    repeating-linear-gradient(45deg, 
-      transparent, 
-      transparent 25px, 
-      rgba(255, 255, 255, 0.05) 25px, 
-      rgba(255, 255, 255, 0.05) 50px),
-    /* Dark base */
-    linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-  overflow: hidden;
-  position: relative;
-}
-
-/* Animated confetti using pseudo-elements */
-body::before,
-body::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
+  padding: 0;
   width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* Confetti effect using background images */
-body::before {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Base dark color */
+  background-color: #0f172a; 
+  
+  /* Moving spotlights using the cake/candle colors */
   background-image: 
-    /* Red confetti */
-    radial-gradient(circle at 10% 20%, #ff6b6b 2px, transparent 3px),
-    radial-gradient(circle at 20% 40%, #ff6b6b 1px, transparent 2px),
-    /* Yellow confetti */
-    radial-gradient(circle at 30% 60%, #ffd93d 2px, transparent 3px),
-    radial-gradient(circle at 40% 80%, #ffd93d 1px, transparent 2px),
-    /* Green confetti */
-    radial-gradient(circle at 50% 30%, #6bcf7f 2px, transparent 3px),
-    radial-gradient(circle at 60% 50%, #6bcf7f 1px, transparent 2px),
-    /* Blue confetti */
-    radial-gradient(circle at 70% 70%, #4d96ff 2px, transparent 3px),
-    radial-gradient(circle at 80% 90%, #4d96ff 1px, transparent 2px),
-    /* Purple confetti */
-    radial-gradient(circle at 90% 10%, #9d4edd 2px, transparent 3px),
-    radial-gradient(circle at 95% 25%, #9d4edd 1px, transparent 2px);
-  background-size: 200px 200px;
-  animation: confetti-float 20s linear infinite;
+    radial-gradient(circle at 15% 50%, rgba(255, 107, 107, 0.2), transparent 30%), 
+    radial-gradient(circle at 85% 30%, rgba(255, 217, 61, 0.2), transparent 30%), 
+    radial-gradient(circle at 50% 80%, rgba(77, 150, 255, 0.2), transparent 30%), 
+    radial-gradient(circle at 50% 20%, rgba(157, 78, 221, 0.2), transparent 30%);
+    
+  /* Large size allows movement */
+  background-size: 200% 200%;
+  
+  /* Animation to shift the lights */
+  animation: partyLights 12s ease infinite;
 }
 
-/* Moving gradient overlay */
-body::after {
-  background: 
-    radial-gradient(circle at 50% 50%, 
-      rgba(255, 255, 255, 0.1) 0%, 
-      transparent 50%),
-    radial-gradient(circle at 80% 20%, 
-      rgba(59, 130, 246, 0.2) 0%, 
-      transparent 50%),
-    radial-gradient(circle at 20% 80%, 
-      rgba(139, 92, 246, 0.2) 0%, 
-      transparent 50%);
-  animation: gradient-move 15s ease-in-out infinite alternate;
-}
-
-@keyframes confetti-float {
-  0% {
-    background-position: 0 0, 50px 50px, 100px 100px, 150px 150px;
-  }
-  100% {
-    background-position: 200px 200px, 250px 250px, 300px 300px, 350px 350px;
-  }
-}
-
-@keyframes gradient-move {
-  0% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.8;
-  }
-  50% {
-    transform: translate(50px, 30px) scale(1.2);
-    opacity: 0.6;
-  }
-  100% {
-    transform: translate(-30px, -50px) scale(1.1);
-    opacity: 0.8;
-  }
+@keyframes partyLights {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 button {
   cursor: pointer;
 }
 
-/* Rainbow spinner for birthday theme */
+/* --- SPINNER --- */
 .spinner {
   background-image: linear-gradient(
     45deg,
@@ -121,53 +57,15 @@ button {
   box-shadow: 
     0px -5px 20px 0px rgba(255, 107, 107, 0.7),
     0px 5px 20px 0px rgba(157, 78, 221, 0.7),
-    0px 0px 30px 10px rgba(77, 150, 255, 0.5),
-    0 0 100px rgba(255, 255, 255, 0.3);
-  position: relative;
-  z-index: 2;
-  margin: 0 auto;
-}
-
-.spinner::before {
-  content: '';
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  right: -10px;
-  bottom: -10px;
-  background: linear-gradient(45deg,
-    #ff6b6b 0%,
-    #ffd93d 25%,
-    #6bcf7f 50%,
-    #4d96ff 75%,
-    #9d4edd 100%);
-  border-radius: 110px;
-  z-index: -1;
-  filter: blur(20px);
-  opacity: 0.5;
-  animation: pulse 2s ease-in-out infinite alternate;
-}
-
-@keyframes pulse {
-  0% {
-    opacity: 0.3;
-    transform: scale(0.95);
-  }
-  100% {
-    opacity: 0.7;
-    transform: scale(1.05);
-  }
+    0px 0px 30px 10px rgba(77, 150, 255, 0.5);
 }
 
 .spinner1 {
-  background-color: rgba(15, 23, 42, 0.8);
+  background-color: #0f172a;
   width: 180px;
   height: 180px;
   border-radius: 100px;
   filter: blur(10px);
-  position: relative;
-  z-index: 1;
-  margin: 0 auto;
 }
 
 @keyframes spinning82341 {
@@ -176,7 +74,7 @@ button {
   }
 }
 
-/* Rainbow flicker animation for birthday candle */
+/* --- CANDLE ANIMATION --- */
 @keyframes flicker {
   0% {
     transform: skewX(5deg) scale(1);
@@ -234,44 +132,20 @@ button {
   }
 }
 
+/* --- CAKE STRUCTURE --- */
 .cake {
   position: relative;
   width: 250px;
   height: 200px;
-  margin: 40px auto;
-  z-index: 10;
-}
-
-/* Cake container with glow effect */
-.cake::before {
-  content: '';
+  /* Updated positioning to work better with flex body */
   position: absolute;
-  top: -50px;
-  left: -50px;
-  right: -50px;
-  bottom: -50px;
-  background: radial-gradient(circle at center,
-    rgba(255, 107, 107, 0.2) 0%,
-    rgba(255, 217, 61, 0.15) 25%,
-    rgba(107, 207, 127, 0.1) 50%,
-    transparent 70%);
-  border-radius: 50%;
-  z-index: -1;
-  animation: cake-glow 4s ease-in-out infinite alternate;
+  top: 50%;
+  left: 50%;
+  margin-left: -125px;
+  margin-top: -100px; /* Added to center vertically */
 }
 
-@keyframes cake-glow {
-  0% {
-    opacity: 0.3;
-    transform: scale(0.9);
-  }
-  100% {
-    opacity: 0.7;
-    transform: scale(1.1);
-  }
-}
-
-/* Icy blue plate for coldest feel */
+/* Icy blue plate */
 .plate {
   width: 270px;
   height: 110px;
@@ -292,7 +166,7 @@ button {
   position: absolute;
 }
 
-/* Rainbow colored cake layers */
+/* Rainbow Layers */
 .layer {
   position: absolute;
   display: block;
@@ -322,43 +196,11 @@ button {
     0 30px 0 rgba(157, 78, 221, 0.6);
 }
 
-.layer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent);
-  border-radius: 50%;
-  animation: shimmer 3s linear infinite;
-}
+.layer-top { top: 0px; }
+.layer-middle { top: 33px; }
+.layer-bottom { top: 66px; }
 
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-.layer-top {
-  top: 0px;
-}
-
-.layer-middle {
-  top: 33px;
-}
-
-.layer-bottom {
-  top: 66px;
-}
-
-/* Icy blue frosting */
+/* Icing */
 .icing {
   top: 2px;
   left: 5px;
@@ -384,7 +226,7 @@ button {
   z-index: 1;
 }
 
-/* Rainbow drips */
+/* Drips */
 .drip {
   display: block;
   width: 50px;
@@ -418,7 +260,7 @@ button {
   background: linear-gradient(to bottom, #6bcf7f, #8ad99c);
 }
 
-/* Colorful birthday candles */
+/* Candle */
 .candle {
   background: linear-gradient(180deg, 
     #ff6b6b 0%,
@@ -463,76 +305,45 @@ button {
   filter: brightness(1.2);
 }
 
-/* Birthday text using pseudo-element */
-body::after {
-  content: '🎂 Happy Birthday! 🎉';
-  position: fixed;
-  top: 20px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  font-family: 'Arial', sans-serif;
-  font-size: 2.5em;
-  font-weight: bold;
-  color: transparent;
-  background: linear-gradient(45deg, 
-    #ff6b6b, #ffd93d, #6bcf7f, #4d96ff, #9d4edd);
-  -webkit-background-clip: text;
-  background-clip: text;
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-  z-index: 100;
-  animation: banner-shimmer 3s infinite alternate;
-}
-
-@keyframes banner-shimmer {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
-}
-
-/* Floating particles using box-shadow */
-.spinner-container {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  margin: 50px auto;
-}
-
-.spinner-container::before {
-  content: '';
+/* Confetti Effect */
+.cake:after {
+  content: "";
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: 
-    radial-gradient(circle at 30% 30%, 
-      rgba(255, 107, 107, 0.2) 2%, 
-      transparent 20%),
-    radial-gradient(circle at 70% 70%, 
-      rgba(255, 217, 61, 0.2) 2%, 
-      transparent 20%),
-    radial-gradient(circle at 40% 60%, 
-      rgba(107, 207, 127, 0.2) 2%, 
-      transparent 20%),
-    radial-gradient(circle at 60% 40%, 
-      rgba(77, 150, 255, 0.2) 2%, 
-      transparent 20%);
-  filter: blur(10px);
-  animation: rotate 20s linear infinite;
+  top: -40px;
+  left: -40px;
+  right: -40px;
+  bottom: -40px;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(255, 107, 107, 0.4) 2px, transparent 2px),
+    radial-gradient(circle at 60% 10%, rgba(255, 217, 61, 0.4) 2px, transparent 2px),
+    radial-gradient(circle at 40% 70%, rgba(107, 207, 127, 0.4) 2px, transparent 2px),
+    radial-gradient(circle at 80% 40%, rgba(77, 150, 255, 0.4) 2px, transparent 2px),
+    radial-gradient(circle at 30% 80%, rgba(157, 78, 221, 0.4) 2px, transparent 2px),
+    radial-gradient(circle at 70% 20%, rgba(255, 107, 107, 0.4) 2px, transparent 2px);
+  background-size: 50px 50px;
   z-index: -1;
+  animation: float 20s linear infinite;
+  pointer-events: none;
 }
 
-@keyframes rotate {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-    }
+@keyframes float {
+  0% { background-position: 0 0, 25px 25px, 50px 50px, 75px 75px, 100px 100px, 125px 125px; }
+  100% { background-position: 50px 50px, 75px 75px, 100px 100px, 125px 125px, 150px 150px, 175px 175px; }
+}
+
+/* Glowing Particles */
+.glow-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  animation: particle-float 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes particle-float {
+  0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+  50% { opacity: 1; }
+}
