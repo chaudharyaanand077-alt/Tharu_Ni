@@ -1,44 +1,10 @@
 @import "tailwindcss";
 
-/* --- NEW BACKGROUND THEME --- */
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-  /* Base dark color */
-  background-color: #0f172a; 
-  
-  /* Moving spotlights using the cake/candle colors */
-  background-image: 
-    radial-gradient(circle at 15% 50%, rgba(255, 107, 107, 0.2), transparent 30%), 
-    radial-gradient(circle at 85% 30%, rgba(255, 217, 61, 0.2), transparent 30%), 
-    radial-gradient(circle at 50% 80%, rgba(77, 150, 255, 0.2), transparent 30%), 
-    radial-gradient(circle at 50% 20%, rgba(157, 78, 221, 0.2), transparent 30%);
-    
-  /* Large size allows movement */
-  background-size: 200% 200%;
-  
-  /* Animation to shift the lights */
-  animation: partyLights 12s ease infinite;
-}
-
-@keyframes partyLights {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
 button {
   cursor: pointer;
 }
 
-/* --- SPINNER --- */
+/* Rainbow spinner for birthday theme */
 .spinner {
   background-image: linear-gradient(
     45deg,
@@ -74,7 +40,7 @@ button {
   }
 }
 
-/* --- CANDLE ANIMATION --- */
+/* Rainbow flicker animation for birthday candle */
 @keyframes flicker {
   0% {
     transform: skewX(5deg) scale(1);
@@ -132,20 +98,16 @@ button {
   }
 }
 
-/* --- CAKE STRUCTURE --- */
 .cake {
   position: relative;
   width: 250px;
   height: 200px;
-  /* Updated positioning to work better with flex body */
-  position: absolute;
   top: 50%;
   left: 50%;
   margin-left: -125px;
-  margin-top: -100px; /* Added to center vertically */
 }
 
-/* Icy blue plate */
+/* Icy blue plate for coldest feel */
 .plate {
   width: 270px;
   height: 110px;
@@ -166,7 +128,7 @@ button {
   position: absolute;
 }
 
-/* Rainbow Layers */
+/* Rainbow colored cake layers */
 .layer {
   position: absolute;
   display: block;
@@ -196,11 +158,19 @@ button {
     0 30px 0 rgba(157, 78, 221, 0.6);
 }
 
-.layer-top { top: 0px; }
-.layer-middle { top: 33px; }
-.layer-bottom { top: 66px; }
+.layer-top {
+  top: 0px;
+}
 
-/* Icing */
+.layer-middle {
+  top: 33px;
+}
+
+.layer-bottom {
+  top: 66px;
+}
+
+/* Icy blue frosting */
 .icing {
   top: 2px;
   left: 5px;
@@ -226,7 +196,7 @@ button {
   z-index: 1;
 }
 
-/* Drips */
+/* Rainbow drips */
 .drip {
   display: block;
   width: 50px;
@@ -260,7 +230,7 @@ button {
   background: linear-gradient(to bottom, #6bcf7f, #8ad99c);
 }
 
-/* Candle */
+/* Colorful birthday candles */
 .candle {
   background: linear-gradient(180deg, 
     #ff6b6b 0%,
@@ -305,7 +275,7 @@ button {
   filter: brightness(1.2);
 }
 
-/* Confetti Effect */
+/* Add sprinkles/confetti effect around cake */
 .cake:after {
   content: "";
   position: absolute;
@@ -327,11 +297,15 @@ button {
 }
 
 @keyframes float {
-  0% { background-position: 0 0, 25px 25px, 50px 50px, 75px 75px, 100px 100px, 125px 125px; }
-  100% { background-position: 50px 50px, 75px 75px, 100px 100px, 125px 125px, 150px 150px, 175px 175px; }
+  0% {
+    background-position: 0 0, 25px 25px, 50px 50px, 75px 75px, 100px 100px, 125px 125px;
+  }
+  100% {
+    background-position: 50px 50px, 75px 75px, 100px 100px, 125px 125px, 150px 150px, 175px 175px;
+  }
 }
 
-/* Glowing Particles */
+/* Add glowing particles for extra birthday magic */
 .glow-particle {
   position: absolute;
   width: 4px;
@@ -344,6 +318,11 @@ button {
 }
 
 @keyframes particle-float {
-  0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
-  50% { opacity: 1; }
-}
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+    }
